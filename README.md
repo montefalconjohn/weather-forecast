@@ -14,12 +14,12 @@ npm install npm@latest -g
 Clone the repo
 
 ```bash
-  git clone https://github.com/montefalconjohn/weather-forecast.git
+git clone https://github.com/montefalconjohn/weather-forecast.git
 ```
 
 Install NPM packages
 ```bash
-    npm install
+npm install
 ```
 
     
@@ -28,7 +28,7 @@ Install NPM packages
 To deploy this project run
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
 And access it in your browser: http://localhost:5173/
