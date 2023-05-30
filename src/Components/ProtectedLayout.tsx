@@ -2,6 +2,8 @@
 import * as React from 'react';
 import {useState} from "react";
 import {Navigate, Outlet} from "react-router-dom";
+import {Container} from "@mui/material";
+import NavigationBar from "./NavigationBar";
 
 const ProtectedLayout = () => {
     // If not authenticated, redirect it to login form
@@ -10,12 +12,12 @@ const ProtectedLayout = () => {
     if (!auth) {
         return <Navigate to="/login"/>
     }
-    console.log('here')
+
     return (
-        <div>
-            <h1>Dashboarrd</h1>
+        <Container maxWidth="lg" sx={{marginTop: "30px"}}>
+            <NavigationBar/>
             <Outlet/>
-        </div>
+        </Container>
     );
 };
 
