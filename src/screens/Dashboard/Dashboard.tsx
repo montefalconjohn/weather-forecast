@@ -6,12 +6,12 @@ import WeatherSearchForm from "../Weather/WeatherSearchForm";
 
 const Dashboard = (): ReactElement => {
     const {user} = useAuth0();
-    const {name, nickname} = user;
+    if (!user) return;
     return (
         <Container component="main" maxWidth="xs" sx={{marginTop: "80px"}}>
             <Box sx={{textAlign: "center"}}>
-                <p>{name}</p>
-                <p>https://github.com/{nickname}</p>
+                <p>{user.name}</p>
+                <p>https://github.com/{user.nickname}</p>
                 <WeatherSearchForm/>
             </Box>
         </Container>
