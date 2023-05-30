@@ -10,7 +10,6 @@ const ProtectedLayout = () => {
     if (!checkedCookies) {
         return <Navigate to="/login"/>
     }
-
     return (
         <Container maxWidth="lg" sx={{marginTop: "30px"}}>
             <NavigationBar/>

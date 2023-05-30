@@ -16,7 +16,7 @@ const NavigationBar = () => {
     }));
 
     const handleLogout = () => {
-        logout()
+        logout();
         setCheckCookies(false);
         setUser(null)
     }
@@ -32,7 +32,7 @@ const NavigationBar = () => {
                     </Typography>
                     {
                         checkedCookies &&
-                        <Button onClick={handleLogout}>
+                        <Button onClick={handleLogout} sx={{float: "right", paddingLeft: "80px"}}>
                             <h1 style={{color: "black"}}>Logout</h1>
                         </Button>
                     }
