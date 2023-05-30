@@ -3,6 +3,7 @@ import ProtectedLayout from "./Components/ProtectedLayout";
 import Dashboard from "./screens/Dashboard/Dashboard";
 import UnauthenticatedLayout from "./Components/UnauthenticatedLayout";
 import Login from "./screens/Login/Login";
+import WeatherScreen from "./screens/Weather/WeatherScreen";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard/>
-            }
+            },
+            {
+                path: '/weathers/:id',
+                element: <WeatherScreen/>
+            },
         ]
     },
     {

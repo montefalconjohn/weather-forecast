@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,10 +6,21 @@ import Typography from '@mui/material/Typography';
 import CloudIcon from '@mui/icons-material/Cloud';
 import {Button, CssBaseline} from "@mui/material";
 import {useAuth0} from "@auth0/auth0-react";
+import useStore from "../services/zustand/store";
 
 const NavigationBar = () => {
     const {logout} = useAuth0();
-    const {isAuthenticated} = useAuth0();
+    const {setCheckCookies, setUser} = useStore((state) => ({
+        setUser: state.setUser,
+        setCheckCookies: state.setCheckCookies
+    }));
+
+    const handleLogout = () => {
+        logout()
+        setCheckCookies(false);
+        setUser(null)
+    }
+    const {checkedCookies} = useStore(state => state);
     return (
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
@@ -21,8 +31,8 @@ const NavigationBar = () => {
                         Weather Forecast
                     </Typography>
                     {
-                        isAuthenticated &&
-                        <Button onClick={logout}>
+                        checkedCookies &&
+                        <Button onClick={handleLogout}>
                             <h1 style={{color: "black"}}>Logout</h1>
                         </Button>
                     }

@@ -17,7 +17,7 @@ const useStore = create<StoreState>()(
             name: "store",
             storage: createJSONStorage(() => localStorage),
             partialize: (state) => Object.fromEntries(
-                Object.entries(state).filter((key) => ['accessToken', 'checkedCookies', 'user'].includes(key))
+                Object.entries(state).filter(([key]) => ['checkedCookies', 'user'].includes(key))
             )
         }
     ),
