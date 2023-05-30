@@ -30,8 +30,6 @@ const WeatherSearchForm = () => {
         console.log('here')
     };
 
-
-
     return (
         <Box component="form" onChange={handleFormChange} noValidate sx={{mt: 5}}>
             <TextField
