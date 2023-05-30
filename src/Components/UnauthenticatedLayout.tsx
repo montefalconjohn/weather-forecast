@@ -7,10 +7,7 @@ import useStore from "../services/zustand/store";
 
 const UnauthenticatedLayout = () => {
     // If not authenticated, redirect it to login form
-    const {isAuthenticated} = useAuth0();
     const checkedCookies = useStore(state => state.checkedCookies);
-    console.log(checkedCookies)
-    console.log('unauthenticated')
     if (checkedCookies) {
         return <Navigate to="/dashboard"/>
     }

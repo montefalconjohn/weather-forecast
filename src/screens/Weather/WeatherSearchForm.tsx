@@ -3,31 +3,22 @@ import {Box, Button, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import {useState} from "react";
-import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const WeatherSearchForm = () => {
     const[searchKeyword, setSearchKeyword] = useState<string>("");
+    const[isDisabled, setDisable] = useState<boolean>(true);
+    const navigate = useNavigate();
 
     const handleFormChange = (e: React.ChangeEvent<HTMLFormElement>): void => {
         setSearchKeyword(e.target.value);
-    };
-
-    const fetchWeather = async (searchKeyword: string) => {
-        try {
-            let appId: string = "b1aab4e616aa07c3e8a48526923482ac";
-            let url: string = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${searchKeyword}&appid=${appId}`;
-            const weatherResult = await axios.get(url);
-            console.log(weatherResult)
-        } catch (e) {
-            console.log(e)
-        }
+        setDisable(false);
     };
 
     const handleSubmitButton = (e: React.ChangeEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        fetchWeather(searchKeyword);
-        console.log(searchKeyword);
-        console.log('here')
+        let url: string = `/weathers/${searchKeyword}`;
+        navigate(url)
     };
 
     return (
@@ -48,7 +39,7 @@ const WeatherSearchForm = () => {
                         </InputAdornment>
                         )}}
             />
-            <Button type="submit" variant="contained" sx={{mt: 3, mb: 2}} onClick={handleSubmitButton}>
+            <Button type="submit" variant="contained" sx={{mt: 3, mb: 2}} onClick={handleSubmitButton} disabled={isDisabled}>
                 Display Weather
             </Button>
         </Box>

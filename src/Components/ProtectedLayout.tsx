@@ -1,9 +1,7 @@
-// @flow
 import * as React from 'react';
 import {Navigate, Outlet} from "react-router-dom";
 import {Container} from "@mui/material";
 import NavigationBar from "./NavigationBar";
-import {useAuth0} from "@auth0/auth0-react";
 import useStore from "../services/zustand/store";
 
 const ProtectedLayout = () => {

@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,7 +10,6 @@ import useStore from "../services/zustand/store";
 
 const NavigationBar = () => {
     const {logout} = useAuth0();
-    const {isAuthenticated} = useAuth0();
     const {setCheckCookies, setUser} = useStore((state) => ({
         setUser: state.setUser,
         setCheckCookies: state.setCheckCookies
