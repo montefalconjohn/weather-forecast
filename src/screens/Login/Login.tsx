@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {Box, Button, Container, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 import {useAuth0} from "@auth0/auth0-react";
+import {ReactElement} from "react";
 
 const theme = createTheme();
 
-const Login = () => {
+const Login = (): ReactElement => {
     const {loginWithPopup} = useAuth0();
 
     return (
