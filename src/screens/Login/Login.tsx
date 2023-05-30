@@ -4,23 +4,9 @@ import {useAuth0} from "@auth0/auth0-react";
 
 const theme = createTheme();
 
-const Login = () => {const {
-    isAuthenticated,
-    loginWithPopup,
-    user
-} = useAuth0();
-    const handleOnClick = () => {
+const Login = () => {
+    const {loginWithPopup} = useAuth0();
 
-
-// {
-//     "sub": "github|39995905",
-//     "nickname": "montefalconjohn",
-//     "name": "John Maynard Montefalcon",
-//     "picture": "https://avatars.githubusercontent.com/u/39995905?v=4",
-//     "updated_at": "2023-05-30T03:55:30.519Z"
-// }
-    };
-    console.log(user)
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="s" sx={{marginTop: "80px"}}>

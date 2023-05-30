@@ -10,7 +10,7 @@ import {useAuth0} from "@auth0/auth0-react";
 
 const NavigationBar = () => {
     const {logout} = useAuth0();
-
+    const {isAuthenticated} = useAuth0();
     return (
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
@@ -20,11 +20,13 @@ const NavigationBar = () => {
                     <Typography variant="h4" component="div" sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}, color: "black"}}>
                         Weather Forecast
                     </Typography>
-                    <Button onClick={logout}>
-                        <h1 style={{color: "black"}}>Logout</h1>
-                    </Button>
+                    {
+                        isAuthenticated &&
+                        <Button onClick={logout}>
+                            <h1 style={{color: "black"}}>Logout</h1>
+                        </Button>
+                    }
                 </Toolbar>
-
             </AppBar>
         </Box>
     );

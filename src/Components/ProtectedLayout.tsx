@@ -1,15 +1,14 @@
 // @flow
 import * as React from 'react';
-import {useState} from "react";
 import {Navigate, Outlet} from "react-router-dom";
 import {Container} from "@mui/material";
 import NavigationBar from "./NavigationBar";
+import {useAuth0} from "@auth0/auth0-react";
 
 const ProtectedLayout = () => {
     // If not authenticated, redirect it to login form
-
-    const[auth, setAuth] = useState<boolean>(false);
-    if (!auth) {
+    const {isAuthenticated} = useAuth0();
+    if (!isAuthenticated) {
         return <Navigate to="/login"/>
     }
 
