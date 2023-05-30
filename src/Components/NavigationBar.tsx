@@ -5,9 +5,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CloudIcon from '@mui/icons-material/Cloud';
-import {CssBaseline} from "@mui/material";
+import {Button, CssBaseline} from "@mui/material";
+import {useAuth0} from "@auth0/auth0-react";
 
 const NavigationBar = () => {
+    const {logout} = useAuth0();
+
     return (
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
@@ -17,7 +20,11 @@ const NavigationBar = () => {
                     <Typography variant="h4" component="div" sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}, color: "black"}}>
                         Weather Forecast
                     </Typography>
+                    <Button onClick={logout}>
+                        <h1 style={{color: "black"}}>Logout</h1>
+                    </Button>
                 </Toolbar>
+
             </AppBar>
         </Box>
     );
