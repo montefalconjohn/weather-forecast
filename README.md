@@ -1,7 +1,7 @@
 
 # Weather Forecast
 
-This is a simple Weather forecast application using React JS, OpenWeather API, and Auth0 (authentication and authorization).
+This is a simple Weather forecast application using React JS + Typescript, OpenWeather API, and Auth0 (authentication and authorization).
 
 
 ## Prerequisites
